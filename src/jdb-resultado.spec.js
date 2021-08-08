@@ -2,7 +2,7 @@
 
 const {readFileSync} = require('fs')
 const path = require('path');
-const pagina = readFileSync(path.resolve(__dirname,'../test/fixtures/pagina-resultado.html'))
+
 const paginaResultado = readFileSync(path.resolve(__dirname,'../test/fixtures/site-resultadodojogodobicho-rj.html'))
 const got = require('got');
 const jdb = require('./jdb-resultado');
