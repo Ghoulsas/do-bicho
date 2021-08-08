@@ -8,7 +8,8 @@
     "test:clear": "jest --clearCache",
     "test:unit": "npm test -- --watch -c ",
     "test:verbose": "jest  --passWithNoTests",
-    "test:ci": "npm test -- --coverage --silent"
+    "test:ci": "npm test -- --coverage --silent",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
   "author": "",
