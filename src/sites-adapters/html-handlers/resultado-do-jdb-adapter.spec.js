@@ -5,10 +5,10 @@ const path = require('path');
 const SiteResultadoJogoDoBichoAdapter = require('./resultado-do-jdb-adapter');
 const pagina = readFileSync(path.resolve(__dirname,'../../../test/fixtures/site-resultadodojogodobicho-rj.html'))
 describe('Site: resultado do jogo do bicho adapter', () => {
-    test('deve retornar o resultado do jogo das 11h (ptm) do RJ', () => {
+    test('deve retornar o resultado do jogo das 11h (ptm)', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({sorteio: 'ptm', estado: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: 'ptm'})
         expect(resultado).toEqual([
          {numero: '1577', animal: 'Perú', grupo:'20' ,premio: '1º'}, 
          {numero: '1884', animal: 'Touro', grupo:'21' ,premio: '2º'},
@@ -20,10 +20,10 @@ describe('Site: resultado do jogo do bicho adapter', () => {
         ])
     });
 
-    test('deve retornar o resultado do jogo das 14h (Pt) do RJ', () => {
+    test('deve retornar o resultado do jogo das 14h (Pt) ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({sorteio: '14h', estado: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '14h'})
         expect(resultado).toEqual([
          {numero: '3083', animal: 'Touro', grupo:'21' ,premio: '1º'}, 
          {numero: '2691', animal: 'Urso', grupo:'23' ,premio: '2º'},
@@ -34,10 +34,10 @@ describe('Site: resultado do jogo do bicho adapter', () => {
          {numero: '296',animal: '', grupo:'' ,  premio: '7º [mult]'}
         ])
     });
-    test('deve retornar o resultado do jogo das 16h do RJ', () => {
+    test('deve retornar o resultado do jogo das 16h', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({sorteio: '16h', estado: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '16h',})
         expect(resultado).toEqual([
          {numero: '8698', animal: 'Vaca', grupo:'25' ,premio: '1º'}, 
          {numero: '6689', animal: 'Urso', grupo:'23' ,premio: '2º'},
@@ -49,10 +49,10 @@ describe('Site: resultado do jogo do bicho adapter', () => {
         ])
     });
 
-    test('deve retornar o resultado do jogo das 18h (Ptn) do RJ', () => {
+    test('deve retornar o resultado do jogo das 18h (Ptn)', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({sorteio: '18h', estado: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '18h'})
         expect(resultado).toEqual([
          {numero: '9875', animal: 'Pavão', grupo:'19' ,premio: '1º'}, 
          {numero: '7597', animal: 'Vaca', grupo:'25' ,premio: '2º'},
@@ -65,10 +65,10 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     });
 
 
-    test('deve retornar o resultado do jogo das 21h do RJ', () => {
+    test('deve retornar o resultado do jogo das 21h ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({sorteio: '21h', estado: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '21h'})
         expect(resultado).toEqual([
          {numero: '0831', animal: 'Camelo', grupo:'08' ,premio: '1º'}, 
          {numero: '4248', animal: 'Elefante', grupo:'12' ,premio: '2º'},
@@ -78,5 +78,27 @@ describe('Site: resultado do jogo do bicho adapter', () => {
          {numero: '0105',animal: '', grupo:'' ,  soma: '6º [soma]'},
          {numero: '530',animal: '', grupo:'' ,  premio: '7º [mult]'}
         ])
+    });
+
+    test('deve retornar o resultado do jogo das 20h', () => {
+        const sut = new SiteResultadoJogoDoBichoAdapter()
+        sut.definirHtml(pagina)
+        const resultado = sut.extrairResultado({sorteio: '20h'})
+        expect(resultado).toEqual([
+         {numero: '0831', animal: 'Camelo', grupo:'08' ,premio: '1º'}, 
+         {numero: '4248', animal: 'Elefante', grupo:'12' ,premio: '2º'},
+         {numero: '5104',animal: 'Avestruz',grupo:'01' , premio: '3º'},
+         {numero: '9054',animal: 'Gato', grupo:'14' ,  premio: '4º'},
+         {numero: '0868',animal: 'Macaco', grupo:'17' , premio: '5º'},
+         {numero: '0105',animal: '', grupo:'' ,  soma: '6º [soma]'},
+         {numero: '530',animal: '', grupo:'' ,  premio: '7º [mult]'}
+        ])
+    });
+
+    test('deve retornar um array vazio para um sorteio inválido do jogo das 12h (não existe)', () => {
+        const sut = new SiteResultadoJogoDoBichoAdapter()
+        sut.definirHtml(pagina)
+        const resultado = sut.extrairResultado({sorteio: '12h'})
+        expect(resultado).toEqual([])
     });
 });
