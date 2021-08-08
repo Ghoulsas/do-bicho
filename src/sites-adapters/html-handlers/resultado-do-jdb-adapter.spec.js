@@ -34,6 +34,20 @@ describe('Site: resultado do jogo do bicho adapter', () => {
          {numero: '296',animal: '', grupo:'' ,  premio: '7º [mult]'}
         ])
     });
+    test('deve retornar o resultado do jogo das 16h do RJ', () => {
+        const sut = new SiteResultadoJogoDoBichoAdapter()
+        sut.definirHtml(pagina)
+        const resultado = sut.extrairResultado({resultado: '16h', sorteio: 'rj'})
+        expect(resultado).toEqual([
+         {numero: '8698', animal: 'Vaca', grupo:'25' ,premio: '1º'}, 
+         {numero: '6689', animal: 'Urso', grupo:'23' ,premio: '2º'},
+         {numero: '1131',animal: 'Camelo',grupo:'08' , premio: '3º'},
+         {numero: '5167',animal: 'Macaco', grupo:'17' ,  premio: '4º'},
+         {numero: '2186',animal: 'Tigre', grupo:'22' , premio: '5º'},
+         {numero: '3871',animal: '', grupo:'' ,  soma: '6º [soma]'},
+         {numero: '180',animal: '', grupo:'' ,  premio: '7º [mult]'}
+        ])
+    });
 
     test('deve retornar o resultado do jogo das 18h (Ptn) do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
@@ -47,6 +61,22 @@ describe('Site: resultado do jogo do bicho adapter', () => {
          {numero: '1115',animal: 'Borboleta', grupo:'04' , premio: '5º'},
          {numero: '3446',animal: '', grupo:'' ,  soma: '6º [soma]'},
          {numero: '020',animal: '', grupo:'' ,  premio: '7º [mult]'}
+        ])
+    });
+
+
+    test('deve retornar o resultado do jogo das 21h do RJ', () => {
+        const sut = new SiteResultadoJogoDoBichoAdapter()
+        sut.definirHtml(pagina)
+        const resultado = sut.extrairResultado({resultado: '21h', sorteio: 'rj'})
+        expect(resultado).toEqual([
+         {numero: '0831', animal: 'Camelo', grupo:'08' ,premio: '1º'}, 
+         {numero: '4248', animal: 'Elefante', grupo:'12' ,premio: '2º'},
+         {numero: '5104',animal: 'Avestruz',grupo:'01' , premio: '3º'},
+         {numero: '9054',animal: 'Gato', grupo:'14' ,  premio: '4º'},
+         {numero: '0868',animal: 'Macaco', grupo:'17' , premio: '5º'},
+         {numero: '0105',animal: '', grupo:'' ,  soma: '6º [soma]'},
+         {numero: '530',animal: '', grupo:'' ,  premio: '7º [mult]'}
         ])
     });
 });
