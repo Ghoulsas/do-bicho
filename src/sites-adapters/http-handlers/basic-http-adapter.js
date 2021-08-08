@@ -5,9 +5,7 @@ class BasicHttpHandler {
         resolveBodyOnly: true,
         responseType: 'buffer'
    }
-   async paginaResultadoDoDia(dia, options){
 
-   }
 }
 
 module.exports = BasicHttpHandler;
