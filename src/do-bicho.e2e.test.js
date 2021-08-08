@@ -1,4 +1,4 @@
-const jdb = require("./jdb-resultado");
+const jdb = require(".");
 describe('[e2e] Test do extractor', () => {
     test('[e2e] teste de retorno do resultado RJ 19h ', async () => {
         const resultado = await jdb.resultado({

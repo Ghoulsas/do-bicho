@@ -5,7 +5,7 @@ const path = require('path');
 
 const paginaResultado = readFileSync(path.resolve(__dirname,'../test/fixtures/site-resultadodojogodobicho-rj.html'))
 const got = require('got');
-const jdb = require('./jdb-resultado');
+const jdb = require('.');
 
 
 describe('Extrator resultado', () => {
