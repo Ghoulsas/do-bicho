@@ -6,10 +6,10 @@ class ExtratorResultado {
         this.htmlHandler = htmlHandler;
         this.httpHandler = httpHandler;
     }
-    async resultado({ dia, sorteio, resultado, site}){
-        const paginaResultado = await this.httpHandler.paginaResultadoDoDia({dia,sorteio})
+    async resultado({ dia, estado, sorteio}){
+        const paginaResultado = await this.httpHandler.paginaResultadoDoDia({dia,estado})
         this.htmlHandler.definirHtml(paginaResultado);
-        return this.htmlHandler.extrairResultado({sorteio, resultado})
+        return this.htmlHandler.extrairResultado({estado, sorteio})
     }
 
 }

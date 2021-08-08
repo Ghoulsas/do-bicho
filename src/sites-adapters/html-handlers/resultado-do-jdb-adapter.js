@@ -5,13 +5,13 @@ class SiteResultadoJogoDoBichoAdapter extends BasicAdapter{
         this.html = html
         this.pagina = cheerio.load(html)
     }
-    extrairResultado({resultado}){
+    extrairResultado({sorteio}){
         const tabelaResultado = []
         const container = this.pagina('.rs-row-container')
-        const cardsPtm = this.selecionarSorteio(container, resultado)
+        const cardsPtm = this.selecionarSorteio(container, sorteio)
         this.pagina(cardsPtm).find('.rs-row').each((index, element) => {
             const divs = this.pagina(element)
-            const resultadoSorteio = this.processarSorteio({divs, resultado, })
+            const resultadoSorteio = this.processarSorteio({divs, sorteio })
             tabelaResultado.push(resultadoSorteio)
         })
     
