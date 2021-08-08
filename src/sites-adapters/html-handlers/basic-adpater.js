@@ -1,12 +1,5 @@
 const cheerio = require('cheerio')
 class BasicAdapter {
-    definirHtml(html){
-        this.html = html
-        this.pagina = cheerio.load(html)
-    }
-    extrairResultado({resultado}){
-
-    }
 
     isPtm(resultado){
         return this.compareStrings(resultado, 'ptm') || this.compareStrings(resultado, '11h') || this.compareStrings(resultado, '10h')
@@ -26,13 +19,6 @@ class BasicAdapter {
     }
 
    
-    processarPremioOuSoma(premio,resultado){
-        if(this.compareStrings(premio, 'soma')){
-            return Object.assign({}, resultado, {soma: premio})
-        }
-        return  Object.assign({}, resultado, {premio})
-    }
-
     compareStrings(str1, str2){
         return str1.toLowerCase() == str2.toLowerCase()
     }
