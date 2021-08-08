@@ -30,8 +30,17 @@ describe('Http handler', () => {
 
         }
     });
+    test('deve throw um erro pois o estado não foi informado', async () => {
+        const sut = new ResultadoDoJdbHttpHandler();
+        try {
+            
+            const resultadoDoDia = await sut.paginaResultadoDoDia({dia:'15062017', })        
+        } catch (error) {
+            expect(error.message).toBe('Não foi informado um estado')
 
-    test('deve throw um erro pois o estado não é suportado', async () => {
+        }
+    });
+    test('deve throw um erro pois a data é inválida', async () => {
         const sut = new ResultadoDoJdbHttpHandler();
         try {
             
