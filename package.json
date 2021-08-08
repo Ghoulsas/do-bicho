@@ -6,15 +6,19 @@
   "scripts": {
     "test": "jest --colors --noStackTrace --passWithNoTests --runInBand",
     "test:clear": "jest --clearCache",
-    "test:unit": "npm test -- --watch -c "
+    "test:unit": "npm test -- --watch -c ",
+    "test:verbose": "jest  --passWithNoTests",
+    "test:ci": "npm test -- --coverage --silent"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "got": "^11.8.2"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.24",
     "jest": "^27.0.6"
   }
 }
