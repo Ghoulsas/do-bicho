@@ -2,7 +2,7 @@
   "name": "do-bicho",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest --colors --noStackTrace --passWithNoTests --runInBand",
     "test:clear": "jest --clearCache",
