@@ -1,7 +1,7 @@
-const extrator = require("./extrator-resultado");
+const jdb = require("./jdb-resultado");
 describe('[e2e] Test do extractor', () => {
     test('[e2e] teste de retorno do resultado RJ 19h ', async () => {
-        const resultado = await extrator.resultado({
+        const resultado = await jdb.resultado({
                 dia: '05/08/2021',
                 sorteio: '19h',
                 estado: 'RJ'   
@@ -16,7 +16,7 @@ describe('[e2e] Test do extractor', () => {
     });
 
     test('[e2e] teste de retorno do resultado SP 19h ', async () => {
-        const resultado = await extrator.resultado({
+        const resultado = await jdb.resultado({
                 dia: '05/08/2021',
                 sorteio: '19h',
                 estado: 'SP'   

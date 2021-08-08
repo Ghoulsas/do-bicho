@@ -1,7 +1,7 @@
 const SiteResultadoJogoDoBichoAdapter = require('./sites-adapters/html-handlers/resultado-do-jdb-adapter');
 const ResultadoDoJdbHttpHandler = require('./sites-adapters/http-handlers/resultado-do-jdb.adapter');
 
-class ExtratorResultado {
+class JdbResultado {
     constructor(htmlHandler, httpHandler){
         this.htmlHandler = htmlHandler;
         this.httpHandler = httpHandler;
@@ -13,4 +13,4 @@ class ExtratorResultado {
     }
 
 }
-module.exports = new ExtratorResultado(new SiteResultadoJogoDoBichoAdapter(), new ResultadoDoJdbHttpHandler());
+module.exports = new JdbResultado(new SiteResultadoJogoDoBichoAdapter(), new ResultadoDoJdbHttpHandler());

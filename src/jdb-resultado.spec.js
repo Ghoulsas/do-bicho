@@ -5,7 +5,7 @@ const path = require('path');
 const pagina = readFileSync(path.resolve(__dirname,'../test/fixtures/pagina-resultado.html'))
 const paginaResultado = readFileSync(path.resolve(__dirname,'../test/fixtures/site-resultadodojogodobicho-rj.html'))
 const got = require('got');
-const extrator = require('./extrator-resultado');
+const jdb = require('./jdb-resultado');
 
 
 describe('Extrator resultado', () => {
@@ -17,7 +17,7 @@ describe('Extrator resultado', () => {
 
     test('deve retornar o número e o animal sorteado do dia informado', async () => {
         jest.spyOn(got, 'get').mockImplementation(() => Promise.resolve(paginaResultado));
-        const resultado = await extrator.resultado({
+        const resultado = await jdb.resultado({
             sorteio: '11h',
             estado: 'RJ' , 
             dia: '15/06/2017',
