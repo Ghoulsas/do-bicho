@@ -8,7 +8,7 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     test('deve retornar o resultado do jogo das 11h (ptm) do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({resultado: 'ptm', sorteio: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: 'ptm', estado: 'rj'})
         expect(resultado).toEqual([
          {numero: '1577', animal: 'Perú', grupo:'20' ,premio: '1º'}, 
          {numero: '1884', animal: 'Touro', grupo:'21' ,premio: '2º'},
@@ -23,7 +23,7 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     test('deve retornar o resultado do jogo das 14h (Pt) do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({resultado: '14h', sorteio: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '14h', estado: 'rj'})
         expect(resultado).toEqual([
          {numero: '3083', animal: 'Touro', grupo:'21' ,premio: '1º'}, 
          {numero: '2691', animal: 'Urso', grupo:'23' ,premio: '2º'},
@@ -37,7 +37,7 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     test('deve retornar o resultado do jogo das 16h do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({resultado: '16h', sorteio: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '16h', estado: 'rj'})
         expect(resultado).toEqual([
          {numero: '8698', animal: 'Vaca', grupo:'25' ,premio: '1º'}, 
          {numero: '6689', animal: 'Urso', grupo:'23' ,premio: '2º'},
@@ -52,7 +52,7 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     test('deve retornar o resultado do jogo das 18h (Ptn) do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({resultado: '18h', sorteio: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '18h', estado: 'rj'})
         expect(resultado).toEqual([
          {numero: '9875', animal: 'Pavão', grupo:'19' ,premio: '1º'}, 
          {numero: '7597', animal: 'Vaca', grupo:'25' ,premio: '2º'},
@@ -68,7 +68,7 @@ describe('Site: resultado do jogo do bicho adapter', () => {
     test('deve retornar o resultado do jogo das 21h do RJ', () => {
         const sut = new SiteResultadoJogoDoBichoAdapter()
         sut.definirHtml(pagina)
-        const resultado = sut.extrairResultado({resultado: '21h', sorteio: 'rj'})
+        const resultado = sut.extrairResultado({sorteio: '21h', estado: 'rj'})
         expect(resultado).toEqual([
          {numero: '0831', animal: 'Camelo', grupo:'08' ,premio: '1º'}, 
          {numero: '4248', animal: 'Elefante', grupo:'12' ,premio: '2º'},

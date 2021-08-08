@@ -18,8 +18,8 @@ describe('Extrator resultado', () => {
     test('deve retornar o número e o animal sorteado do dia informado', async () => {
         jest.spyOn(got, 'get').mockImplementation(() => Promise.resolve(paginaResultado));
         const resultado = await extrator.resultado({
-            resultado: '11h',
-            sorteio: 'RJ',
+            sorteio: '11h',
+            estado: 'RJ' , 
             dia: '15/06/2017',
         })
         expect(resultado.length).toBe(7);

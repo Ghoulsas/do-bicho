@@ -9,7 +9,7 @@ describe('Http handler', () => {
             Buffer.from('<html></html>')
          );
         });
-        const resultadoDoDia = await sut.paginaResultadoDoDia({dia:'15062017', sorteio:'rj'})
+        const resultadoDoDia = await sut.paginaResultadoDoDia({dia:'15062017', estado:'rj'})
         expect(resultadoDoDia).toBeDefined();
         expect(spyGot).toHaveBeenCalled();
         expect(spyGot).toHaveBeenCalledWith('https://resultadojogobicho.com/RJ/dia/2017-06-15', {
@@ -19,5 +19,26 @@ describe('Http handler', () => {
             responseType: 'buffer'
         });
         
+    });
+    test('deve throw um erro pois o estado não é suportado', async () => {
+        const sut = new ResultadoDoJdbHttpHandler();
+        try {
+            
+            const resultadoDoDia = await sut.paginaResultadoDoDia({dia:'15062017', estado:'df'})        
+        } catch (error) {
+            expect(error.message).toBe('O estado DF não é suportado')
+
+        }
+    });
+
+    test('deve throw um erro pois o estado não é suportado', async () => {
+        const sut = new ResultadoDoJdbHttpHandler();
+        try {
+            
+            const resultadoDoDia = await sut.paginaResultadoDoDia({dia:'150617', estado:'rj'})        
+        } catch (error) {
+            expect(error.message).toBe('Dia inválido')
+
+        }
     });
 });

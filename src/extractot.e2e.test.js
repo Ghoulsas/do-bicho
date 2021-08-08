@@ -1,11 +1,10 @@
 const extrator = require("./extrator-resultado");
-describe('Test e2e do extractor', () => {
-    test('Teste de validação de um resultado', async () => {
+describe('[e2e] Test do extractor', () => {
+    test('[e2e] teste de retorno do resultado RJ 19h ', async () => {
         const resultado = await extrator.resultado({
                 dia: '05/08/2021',
-                resultado: '19h',
-                site: 'resultado-do-jdb',
-                sorteio: 'RJ'   
+                sorteio: '19h',
+                estado: 'RJ'   
         })
         expect(resultado).toBeDefined();
         expect(resultado.length).toBe(7)
@@ -16,12 +15,11 @@ describe('Test e2e do extractor', () => {
         });
     });
 
-    test('Teste de validação de um resultado', async () => {
+    test('[e2e] teste de retorno do resultado SP 19h ', async () => {
         const resultado = await extrator.resultado({
                 dia: '05/08/2021',
-                resultado: '19h',
-                site: 'resultado-do-jdb',
-                sorteio: 'SP'   
+                sorteio: '19h',
+                estado: 'SP'   
         })
         expect(resultado).toBeDefined();
         expect(resultado.length).toBe(7)
