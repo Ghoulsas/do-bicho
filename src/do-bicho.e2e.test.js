@@ -14,6 +14,7 @@ describe('[e2e] Test do extractor', () => {
          "premio": "1º"
         });
     });
+    
 
     test('[e2e] teste de retorno do resultado SP 19h ', async () => {
         const resultado = await jdb.resultado({

@@ -1,0 +1,4 @@
+test
+jest.config
+*.spec.js
+*.test.js
